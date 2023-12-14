@@ -1,39 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const DictionaryTable = () => {
-  const [dictionary, setDictionary] = useState({});
+const DictionaryTable = ({city,year}) => {
+  const [dictionary, setDictionary] = useState(null);
 
   useEffect(() => {
-    axios.get('http://example.com/api/dictionary')
+    axios.post('http://127.0.0.1:5000/restaurants/getRestaurants', {"city":city ,"year":year})
       .then(response => {
         setDictionary(response.data);
+        console.log(dictionary)
+        
+        // console.log(dictionary.ADDRESS1)
       })
       .catch(error => {
         console.error('Error fetching dictionary:', error);
       });
-  }, []);
+  }, [year,city]);
+
+  if (!dictionary) {
+    // If dictionary is null, don't render the table
+    return (
+      <div>
+        <p1 className="my-4 px-8">Make a selection for city and year</p1>
+      </div>
+    );
+  }
 
   return (
-    <div className = 'my-4'>
-      <h1>Dictionary Table</h1>
-      <table className="min-w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2">Key</th>
-            <th className="border border-gray-300 px-4 py-2">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(dictionary).map(([key, value], index) => (
-            <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
-              <td className="border border-gray-300 px-4 py-2">{key}</td>
-              <td className="border border-gray-300 px-4 py-2">{value}</td>
-            </tr>
+<div className="my-4 px-8 min-w-full">
+  <h1 className="text-2xl font-bold mb-4">Dictionary Table</h1>
+  <table className="w-full border-collapse border border-gray-300 bg-black text-white">
+    <thead>
+      <tr>
+        {Object.keys(dictionary[0]).map((key) => (
+          <th key={key} className="py-2 px-4 border border-gray-300">{key}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {dictionary.map((row, index) => (
+        <tr key={index}>
+          {Object.values(row).map((value, index) => (
+            <td key={index} className="py-2 px-4 border border-gray-300">{value}</td>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+
+
   );
 };
 

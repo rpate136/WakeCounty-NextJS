@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 
 app = Flask(__name__)
-CORS(app, origins='http://localhost:3000')
+CORS(app, origins='http://localhost:3001')
 
 
 @app.route("/getCityList")
@@ -70,6 +70,7 @@ def getInspectionDf(forceFetch=False):
 
 #-------------------------------------------------------------------------------------------------------
 
+# Prob not needed
 def getListofCities():
     df = getRestaurantsDf()
     listOfCities = df['CITY'].unique()
@@ -82,7 +83,6 @@ def getListofCities():
             }
         options.append(temp)
     return options
-
 
 #-------------------------------------------------------------------------------------------------------
 
@@ -102,6 +102,46 @@ def handle_post_request():
     
     return jsonify(options), 200
 
+
+@app.route('/restaurants/getYear', methods=['GET'])
+def handle_post_request_get_year():
+    df = getRestaurantsDf()
+    # Convert the 'datetime_column' to a Pandas datetime object
+    df['RESTAURANTOPENDATE'] = pd.to_datetime(df['RESTAURANTOPENDATE'])
+    # Extract the year and create a new column 'year'
+    df['RESTAURANTOPENDATE'] = df['RESTAURANTOPENDATE'].dt.year
+    list_of_year = df['RESTAURANTOPENDATE'].unique()
+    list_of_year = sorted(list_of_year)
+    list_of_year = [str(x) for x in list_of_year]
+
+    valueCount = 0
+    options = []
+    for year in list_of_year:
+        temp = {
+            "value": valueCount,
+            "label": year
+        }
+        options.append(temp)
+    return jsonify(options), 200
+
+
+@app.route('/restaurants/getRestaurants', methods=['POST'])
+def search_restaurants_output():
+    try:
+        data = request.get_json()
+        restaurants = getRestaurantsDf()
+        inp1 = data["city"]
+        inp2 = data['year']
+        df_search = restaurants.loc[(restaurants['CITY'] == inp1) & (restaurants['year'] == int(inp2))]
+        df_search = df_search.drop(["OBJECTID","RESTAURANTOPENDATE","X","Y","GEOCODESTATUS","month"] , axis =1)
+        df_search = df_search.sort_values(by=['NAME'])
+        # print(df_search)
+        df_json = df_search.to_json(orient='records')
+        # print(df_json)
+
+        return df_json, 200
+    except:
+        return {{}}, 200
 
 
 if __name__ == '__main__':
