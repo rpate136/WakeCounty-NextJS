@@ -49,8 +49,6 @@ const DictionaryTable = ({city,year}) => {
   </table>
 </div>
 
-
-
   );
 };
 
