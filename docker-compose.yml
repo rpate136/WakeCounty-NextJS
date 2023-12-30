@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  backend:
+    build: ./WakeCountyDataAnalysis/backend
+    volumes:
+      - ./WakeCountyDataAnalysis/backend:/app/backend
+    ports:
+      - 5001:5001
+  frontend:
+    build: ./WakeCountyDataAnalysis/frontend
+    volumes:
+      - ./WakeCountyDataAnalysis/frontend:/app
+    ports:
+      - 8080:8080
+
+

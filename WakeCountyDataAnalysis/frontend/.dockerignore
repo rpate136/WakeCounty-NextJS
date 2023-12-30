@@ -1,1 +1,3 @@
+# docker ignore for frontend
+
 node_modules
