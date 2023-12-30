@@ -1,6 +1,6 @@
 
 *.log
-backend/__pycache__
-backend/node_modules
-backend/myproject
-testing.py
+WakeCountyDataAnalysis/backend/__pycache__
+WakeCountyDataAnalysis/backend/node_modules
+WakeCountyDataAnalysis/backend/myproject
+
