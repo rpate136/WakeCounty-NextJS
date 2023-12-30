@@ -9,7 +9,7 @@ I am working on implementing devops principles of continious integration / deplo
 
 ## How to run
 To run the application locally, clone the repo and run the cmd in the root
-'''cmd
+'''bash
 docker-compose up -d
 '''
 
