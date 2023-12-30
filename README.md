@@ -9,9 +9,9 @@ I am working on implementing devops principles of continious integration / deplo
 
 ## How to run
 To run the application locally, clone the repo and run the cmd in the root
-'''bash
+```bash
 docker-compose up -d
-'''
+```
 
 ## Wake county data info and old video
 The Overall Inspection page on the website is reading 420K+ rows and so will take 40-50 seconds to load depending on your processor. 
