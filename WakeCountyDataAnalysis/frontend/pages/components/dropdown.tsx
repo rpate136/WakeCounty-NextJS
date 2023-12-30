@@ -21,6 +21,7 @@ export default function Dropdown({onSubmit}) {
     axios.get(backendIPAddress+'/restaurants/getList')
     .then(response => {
       // Handle the response data
+      console.log(response.data)
       setlistOfCities(response.data)
     })
     .catch(error => {
