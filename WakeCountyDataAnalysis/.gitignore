@@ -1,5 +1,6 @@
+
 *.log
 backend/__pycache__
-backend/node_moddules
+backend/node_modules
 backend/myproject
 testing.py
