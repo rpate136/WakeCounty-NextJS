@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import backendIP from "../../backendIP"
 
 const DictionaryTable = ({city,year}) => {
   const [dictionary, setDictionary] = useState(null);
+  const backendIPAddress = backendIP.backendIP;
 
   useEffect(() => {
-    axios.post('http://127.0.0.1:5000/restaurants/getRestaurants', {"city":city ,"year":year})
+    axios.post(backendIPAddress+'/restaurants/getRestaurants', {"city":city ,"year":year})
       .then(response => {
         setDictionary(response.data);
-        console.log(dictionary)
-        
-        // console.log(dictionary.ADDRESS1)
+      
       })
       .catch(error => {
         console.error('Error fetching dictionary:', error);

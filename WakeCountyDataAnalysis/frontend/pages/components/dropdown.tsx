@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-dropdown-select';
 import axios from 'axios';
+import backendIP from "../../backendIP"
 
  
 export default function Dropdown({onSubmit}) {
@@ -9,6 +10,7 @@ export default function Dropdown({onSubmit}) {
   const [listOfYears, setlistOfYears] = useState([]);
   const [city, setCity] = useState('');
   const [year, setYear] = useState('');
+  const backendIPAddress = backendIP.backendIP;
 
   const handleSubmit = () => {
     onSubmit({city,year});
@@ -16,7 +18,7 @@ export default function Dropdown({onSubmit}) {
 
   // for getting list of cities
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/restaurants/getList')
+    axios.get(backendIPAddress+'/restaurants/getList')
     .then(response => {
       // Handle the response data
       setlistOfCities(response.data)
@@ -29,7 +31,7 @@ export default function Dropdown({onSubmit}) {
 
     // for getting list of years
     useEffect(() => {
-      axios.get('http://127.0.0.1:5000/restaurants/getYear')
+      axios.get(backendIPAddress+'/restaurants/getYear')
       .then(response => {
         // Handle the response data
         setlistOfYears(response.data)
