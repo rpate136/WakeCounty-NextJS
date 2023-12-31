@@ -103,52 +103,26 @@ self.__RSC_MANIFEST={
         "name": "default",
         "async": false
       }
-    },
-    "(app-client)/./node_modules/next/dist/client/image.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/next/dist/client/image.js",
-        "chunks": [
-          "app/page:app/page"
-        ],
-        "name": "*",
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./node_modules/next/dist/client/image.js",
-        "chunks": [
-          "app/page:app/page"
-        ],
-        "name": "",
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./node_modules/next/dist/client/image.js",
-        "chunks": [
-          "app/page:app/page"
-        ],
-        "name": "default",
-        "async": false
-      }
     }
   },
   "__edge_ssr_module_mapping__": {},
   "__entry_css_files__": {
-    "/app/src/app/layout": [
+    "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/layout": [
       "static/css/_app-client_src_app_globals_css.css"
     ],
-    "/app/src/app/page": [
+    "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/page": [
       "static/css/_app-client_src_app_page_module_css.css",
-      "static/css/_app-client_node_modules_next_font_google_target_css_arguments_subsets_latin_import_Inter_pat-7bac35.css"
+      "static/css/_app-client_node_modules_next_font_google_target_css_path_src_app_page_tsx_import_Inter_argum-34ccc5.css"
     ]
   },
-  "/app/src/app/globals.css#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/globals.css#": {
     "id": "./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[1]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[2]!./src/app/globals.css",
     "name": "",
     "chunks": [
       "static/css/_app-client_src_app_globals_css.css"
     ]
   },
-  "/app/node_modules/next/dist/client/components/app-router.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/app-router.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -156,7 +130,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/app-router.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/app-router.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -164,7 +138,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/app-router.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/app-router.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -172,7 +146,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/app-router.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/app-router.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -180,7 +154,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/app-router.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/app-router.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -188,7 +162,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/app-router.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/app-router.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/app-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -196,7 +170,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/error-boundary.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/error-boundary.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -204,7 +178,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/error-boundary.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/error-boundary.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -212,7 +186,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/error-boundary.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/error-boundary.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -220,7 +194,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/error-boundary.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/error-boundary.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -228,7 +202,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/error-boundary.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/error-boundary.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -236,7 +210,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/error-boundary.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/error-boundary.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/error-boundary.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -244,7 +218,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/layout-router.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/layout-router.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -252,7 +226,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/layout-router.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/layout-router.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -260,7 +234,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/layout-router.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/layout-router.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -268,7 +242,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/layout-router.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/layout-router.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -276,7 +250,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/layout-router.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/layout-router.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -284,7 +258,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/layout-router.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/layout-router.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/layout-router.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -292,7 +266,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/render-from-template-context.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/render-from-template-context.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -300,7 +274,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/render-from-template-context.js": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js": {
     "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -308,7 +282,7 @@ self.__RSC_MANIFEST={
     "name": "*",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/render-from-template-context.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/render-from-template-context.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -316,7 +290,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/render-from-template-context.js#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js#": {
     "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -324,7 +298,7 @@ self.__RSC_MANIFEST={
     "name": "",
     "async": false
   },
-  "/app/node_modules/next/dist/client/components/render-from-template-context.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/client/components/render-from-template-context.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -332,7 +306,7 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/esm/client/components/render-from-template-context.js#default": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/dist/esm/client/components/render-from-template-context.js#default": {
     "id": "(app-client)/./node_modules/next/dist/client/components/render-from-template-context.js",
     "chunks": [
       "app-client-internals:app-client-internals"
@@ -340,62 +314,14 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/app/node_modules/next/dist/client/image.js": {
-    "id": "(app-client)/./node_modules/next/dist/client/image.js",
-    "chunks": [
-      "app/page:app/page"
-    ],
-    "name": "*",
-    "async": false
-  },
-  "/app/node_modules/next/dist/esm/client/image.js": {
-    "id": "(app-client)/./node_modules/next/dist/client/image.js",
-    "chunks": [
-      "app/page:app/page"
-    ],
-    "name": "*",
-    "async": false
-  },
-  "/app/node_modules/next/dist/client/image.js#": {
-    "id": "(app-client)/./node_modules/next/dist/client/image.js",
-    "chunks": [
-      "app/page:app/page"
-    ],
-    "name": "",
-    "async": false
-  },
-  "/app/node_modules/next/dist/esm/client/image.js#": {
-    "id": "(app-client)/./node_modules/next/dist/client/image.js",
-    "chunks": [
-      "app/page:app/page"
-    ],
-    "name": "",
-    "async": false
-  },
-  "/app/node_modules/next/dist/client/image.js#default": {
-    "id": "(app-client)/./node_modules/next/dist/client/image.js",
-    "chunks": [
-      "app/page:app/page"
-    ],
-    "name": "default",
-    "async": false
-  },
-  "/app/node_modules/next/dist/esm/client/image.js#default": {
-    "id": "(app-client)/./node_modules/next/dist/client/image.js",
-    "chunks": [
-      "app/page:app/page"
-    ],
-    "name": "default",
-    "async": false
-  },
-  "/app/node_modules/next/font/google/target.css?{\"arguments\":[{\"subsets\":[\"latin\"]}],\"import\":\"Inter\",\"path\":\"src/app/page.tsx\",\"variableName\":\"inter\"}#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/next/font/google/target.css?{\"path\":\"src/app/page.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
     "id": "null",
     "name": "",
     "chunks": [
-      "static/css/_app-client_node_modules_next_font_google_target_css_arguments_subsets_latin_import_Inter_pat-7bac35.css"
+      "static/css/_app-client_node_modules_next_font_google_target_css_path_src_app_page_tsx_import_Inter_argum-34ccc5.css"
     ]
   },
-  "/app/src/app/page.module.css#": {
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/page.module.css#": {
     "id": "null",
     "name": "",
     "chunks": [

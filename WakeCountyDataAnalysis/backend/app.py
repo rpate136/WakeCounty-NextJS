@@ -9,12 +9,6 @@ app = Flask(__name__)
 CORS(app, origins=['http://localhost:8080', 'http://localhost:3000', 'http://localhost:3001'])
 
 
-@app.route("/getCityList")
-def hello_world():
-
-    return "hello"
-
-
 # API call to get the restaurants in wake county [Table title : Restaurants in Wake County]
 def getRestaurantsDf():
     print('Fetching restaurants data...')
@@ -68,25 +62,8 @@ def getInspectionDf(forceFetch=False):
     return df
 
 
-#-------------------------------------------------------------------------------------------------------
-
-# Prob not needed
-def getListofCities():
-    df = getRestaurantsDf()
-    listOfCities = df['CITY'].unique()
-    valueCount = 0
-    options = []
-    for city in listOfCities:
-        temp = {
-                "value": valueCount,
-                "label": city
-            }
-        options.append(temp)
-    return options
-
-#-------------------------------------------------------------------------------------------------------
-
-
+# -------------------------------------------------------------------------------------------------------
+    # getRestaurant page API
 @app.route('/restaurants/getList', methods=['GET'])
 def handle_post_request():
     df = getRestaurantsDf()

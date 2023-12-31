@@ -7,85 +7,57 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <main className={styles.main}>
+
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+          Welcome&nbsp;
+          <code className={styles.code}>to NextJS</code>
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
+      <div className={styles}>
+      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Data analysis and visualization of
+      <span class="text-blue-600 dark:text-blue-500"> Wake County</span> data.</h1>
+      <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">The government provides data of restaurants, police, fire department, parks and much more. This website analyzes and displayed that data.</p>
       </div>
 
       <div className={styles.grid}>
         <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="https://data-wake.opendata.arcgis.com/search?tags=restaurants"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
+            Wake County Data<span>-&gt;</span>
           </h2>
           <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Link the the data available on wake county government website
           </p>
         </a>
       </div>
+
     </main>
   )
 }
+{/* <div className="flex items-center justify-center min-h-screen bg-gray-800 text-white">
+  <div className="max-w-prose p-6 rounded-lg bg-gray-900">
+    <h1 className="text-8xl font-bold mb-4">Welcome to the Wake County Website</h1>
+  
+    <p className="text-lg mb-4">
+      I'm building a web app to showcase data analysis based on information provided by Wake County.
+    </p>
+
+    <p className="text-lg mb-4">
+      The analytics is done using Pandas, and the graphs are created with Plotly. The front end is developed using NextJS and React, while the backend APIs are powered by Flask.
+    </p>
+
+    <p className="text-lg mb-4">
+      Currently, I'm focusing on implementing DevOps principles, including continuous integration/deployment using Docker, GitHub Actions, and AWS.
+    </p>
+
+    <p className="text-lg mb-4">
+      Check out the Wake County data: [Wake County Open Data](https://data-wake.opendata.arcgis.com/search?tags=restaurants)
+    </p>
+  </div>
+</div> */}
