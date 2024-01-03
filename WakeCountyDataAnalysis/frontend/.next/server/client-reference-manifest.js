@@ -107,12 +107,12 @@ self.__RSC_MANIFEST={
   },
   "__edge_ssr_module_mapping__": {},
   "__entry_css_files__": {
-    "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/layout": [
-      "static/css/_app-client_src_app_globals_css.css"
-    ],
     "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/page": [
       "static/css/_app-client_src_app_page_module_css.css",
       "static/css/_app-client_node_modules_next_font_google_target_css_path_src_app_page_tsx_import_Inter_argum-34ccc5.css"
+    ],
+    "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/layout": [
+      "static/css/_app-client_src_app_globals_css.css"
     ]
   },
   "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/src/app/globals.css#": {
