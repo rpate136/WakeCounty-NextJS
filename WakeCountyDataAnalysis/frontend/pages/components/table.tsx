@@ -4,10 +4,11 @@ import backendIP from "../../backendIP"
 
 const DictionaryTable = ({city,year}) => {
   const [dictionary, setDictionary] = useState(null);
-  const backendIPAddress = backendIP.backendIP;
+  var backendIP = process.env.FLASK_APP_BACKEND_URI
 
   useEffect(() => {
-    axios.post(backendIPAddress+'/restaurants/getRestaurants', {"city":city ,"year":year})
+    const uri = backendIP.concat('/restaurants/getRestaurants')
+    axios.post(uri, {"city":city ,"year":year})
       .then(response => {
         setDictionary(response.data);
       
@@ -21,7 +22,7 @@ const DictionaryTable = ({city,year}) => {
     // If dictionary is null, don't render the table
     return (
       <div>
-        <p1 className="my-4 px-8">Make a selection for city and year</p1>
+        <h1 className="my-4 px-8">Make a selection for city and year</h1>
       </div>
     );
   }

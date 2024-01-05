@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-dropdown-select';
 import axios from 'axios';
 import backendIP from "../../backendIP"
+import { networkInterfaces } from 'os';
 
  
 export default function Dropdown({onSubmit}) {
@@ -10,35 +11,43 @@ export default function Dropdown({onSubmit}) {
   const [listOfYears, setlistOfYears] = useState([]);
   const [city, setCity] = useState('');
   const [year, setYear] = useState('');
-  const backendIPAddress = backendIP.backendIP;
+  var backendIP = process.env.FLASK_APP_BACKEND_URI
+
+  
 
   const handleSubmit = () => {
     onSubmit({city,year});
+    console.log("The backend API is: " + backendIP)
   }
+
+  
 
   // for getting list of cities
   useEffect(() => {
-    axios.get(backendIPAddress+'/restaurants/getList')
+    const uri = backendIP.concat('/restaurants/getList')
+    axios.get(uri)
     .then(response => {
       // Handle the response data
-      console.log(response.data)
       setlistOfCities(response.data)
     })
     .catch(error => {
       // Handle the error
-      console.error(error);
+      console.log("API call IP: "+uri);
+      console.log(error)
     });
     }, []);
 
     // for getting list of years
     useEffect(() => {
-      axios.get(backendIPAddress+'/restaurants/getYear')
+      const uri = backendIP.concat('/restaurants/getYear')
+      axios.get(uri)
       .then(response => {
         // Handle the response data
         setlistOfYears(response.data)
       })
       .catch(error => {
         // Handle the error
+        console.log("API call IP: "+uri);
         console.error(error);
       });
       }, []);

@@ -3,10 +3,11 @@ import json
 import pandas as pd
 import requests
 from flask_cors import CORS
+import logging
 
 
 app = Flask(__name__)
-CORS(app, origins=['http://localhost:8080', 'http://localhost:3000', 'http://localhost:3001'])
+CORS(app)
 
 
 # API call to get the restaurants in wake county [Table title : Restaurants in Wake County]
@@ -122,5 +123,6 @@ def search_restaurants_output():
 
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='error.log', level=logging.DEBUG)
     app.run(debug=True, host='0.0.0.0', port=5001)
 
