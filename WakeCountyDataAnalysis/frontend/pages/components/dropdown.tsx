@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-dropdown-select';
 import axios from 'axios';
 import backendIP from "../../backendIP"
-import { networkInterfaces } from 'os';
 
- 
+
 export default function Dropdown({onSubmit}) {
   
   const [listOfCities, setlistOfCities] = useState([]);
   const [listOfYears, setlistOfYears] = useState([]);
   const [city, setCity] = useState('');
   const [year, setYear] = useState('');
-  var backendIP = process.env.FLASK_APP_BACKEND_URI
-
+  var backendIP= process.env.FLASK_APP_BACKEND_URI || "http://localhost:5001"
   
+
 
   const handleSubmit = () => {
     onSubmit({city,year});
@@ -70,7 +69,7 @@ export default function Dropdown({onSubmit}) {
       <h1 className="text-1xl font-bold">Select City</h1>
       <Select
         options={listOfCities}
-        value={city}
+        values={city}
         onChange={handleSelectChange}
         className="w-full px-6 py-4 bg-gray-100 border border-gray-300 rounded focus:ring focus:ring-indigo-300 text-black"
         contentClassName="bg-white text-blue-600 overflow-visible"

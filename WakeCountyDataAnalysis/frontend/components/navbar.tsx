@@ -9,7 +9,7 @@ export const Navbar = () => {
             <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" className="flex items-center">
-                    <img src="../WClogo.png" className="h-8 mr-3" alt="Flowbite Logo" />
+                    <img src="/WClogo.png" className="h-12 mr-3" alt="Wakecounty Logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Wake County</span>
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
@@ -33,10 +33,10 @@ export const Navbar = () => {
                                 <a href="/restaurants/getOne" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Look Up Resturants</a>
                             </li>
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overall Analysis</a>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Individual Restaurant</a>
                             </li>
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">IDK</a>
+                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overall Analysis</a>
                             </li>
                             </ul>
                             {/* <div className="py-1">

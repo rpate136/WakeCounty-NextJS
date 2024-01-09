@@ -19,7 +19,7 @@ docker pull kardini301/wake_county_webapp
 ```
 
 ## Deploying
-I am currently working on efficient architecture a solution to deploying this application on AWS. My initial plan was to use the ECR server to host the docker images and ECS for running tasks to deploy them in the same EC2 instance. However, there are many networking related hurdles to solve.
+I am working on creating a efficient architecture solution for deploying this application on AWS. My initial plan was to use the ECR service to host the docker images and ECS for running tasks to deploy them in the same EC2 instance. However, there are many networking related hurdles to solve.
 
 ## Wake county data info and old video
 The Overall Inspection page on the website is reading 420K+ rows and so will take 40-50 seconds to load depending on your processor. 
