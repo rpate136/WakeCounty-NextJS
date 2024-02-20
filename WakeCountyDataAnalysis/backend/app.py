@@ -5,9 +5,8 @@ import requests
 from flask_cors import CORS
 import logging
 
-
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/restaurants/*": {"origins": "http://localhost:3000"}})
 
 
 # API call to get the restaurants in wake county [Table title : Restaurants in Wake County]
@@ -16,7 +15,7 @@ def getRestaurantsDf():
     val = 'https://opendata.arcgis.com/datasets/124c2187da8c41c59bde04fa67eb2872_0.geojson'
     # Sending get request and saving the response as response object
     # extracting data in json 
-    r = requests.get(url = val)
+    r = requests.get(url=val)
     rows = []
     data = r.json()['features']
     for d in data:
@@ -30,13 +29,14 @@ def getRestaurantsDf():
     print('restaurants df shape:', df.shape)
     return df
 
+
 # API call to get the inspection data for a specific restaurants in wake county [Table title : Food Inspection Violations]
 def getOneRestaurantInspDf(id):
     print('Fetching restaurants data...')
     val = f"https://maps.wakegov.com/arcgis/rest/services/Inspections/RestaurantInspectionsOpenData/MapServer/2/query?where=HSISID='{id}'&where=1%3D1&outFields=*&outSR=4326&f=json"
     # Sending get request and saving the response as response object
     # extracting data in json 
-    r = requests.get(url = val)
+    r = requests.get(url=val)
     rows = []
     data = r.json()['features']
     for d in data:
@@ -45,6 +45,7 @@ def getOneRestaurantInspDf(id):
     print('restaurants df shape:', df.shape)
     return df
 
+
 # API call to get the inspection data for all restaurants in wake county [Table title : Food Inspection Violations](reading 420K~ rows)
 def getInspectionDf(forceFetch=False):
     print('Fetching restaurants data...')
@@ -52,7 +53,7 @@ def getInspectionDf(forceFetch=False):
 
     # Sending get request and saving the response as response object
     # extracting data in json 
-    r = requests.get(url = val)
+    r = requests.get(url=val)
     rows = []
     data = r.json()['features']
     for d in data:
@@ -64,7 +65,7 @@ def getInspectionDf(forceFetch=False):
 
 
 # -------------------------------------------------------------------------------------------------------
-    # getRestaurant page API
+# getRestaurant page API
 @app.route('/restaurants/getList', methods=['GET'])
 def handle_post_request():
     df = getRestaurantsDf()
@@ -73,11 +74,11 @@ def handle_post_request():
     options = []
     for city in listOfCities:
         temp = {
-                "value": valueCount,
-                "label": city
-            }
+            "value": valueCount,
+            "label": city
+        }
         options.append(temp)
-    
+
     return jsonify(options), 200
 
 
@@ -103,26 +104,31 @@ def handle_post_request_get_year():
     return jsonify(options), 200
 
 
-@app.route('/restaurants/getRestaurants', methods=['POST'])
+@app.route('/restaurants/getRestaurants', methods=['GET'])
 def search_restaurants_output():
     try:
-        data = request.get_json()
+        # Retrieve query parameters from the request
+        inp1 = request.args.get('city')
+        inp2 = request.args.get('year')
+
+        # Ensure both city and year parameters are provided
+        if inp1 is None or inp2 is None:
+            return "City and year parameters are required", 400
+
         restaurants = getRestaurantsDf()
-        inp1 = data["city"]
-        inp2 = data['year']
         df_search = restaurants.loc[(restaurants['CITY'] == inp1) & (restaurants['year'] == int(inp2))]
-        df_search = df_search.drop(["OBJECTID","RESTAURANTOPENDATE","X","Y","GEOCODESTATUS","month"] , axis =1)
+        df_search = df_search.drop(["OBJECTID", "RESTAURANTOPENDATE", "X", "Y", "GEOCODESTATUS", "month"], axis=1)
         df_search = df_search.sort_values(by=['NAME'])
-        # print(df_search)
+
+        # Convert DataFrame to JSON
         df_json = df_search.to_json(orient='records')
-        # print(df_json)
 
         return df_json, 200
-    except:
-        return {{}}, 200
+    except Exception as e:
+        print("Error:", e)
+        return "An error occurred", 500
 
 
 if __name__ == '__main__':
+    app.run(debug=True, host='localhost', port=5001)
     logging.basicConfig(filename='error.log', level=logging.DEBUG)
-    app.run(debug=True, host='0.0.0.0', port=5001)
-
