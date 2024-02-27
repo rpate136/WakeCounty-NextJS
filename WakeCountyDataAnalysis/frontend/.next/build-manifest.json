@@ -28,10 +28,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/restaurants/getOne": [
+    "/restaurants/getRest": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/restaurants/getOne.js"
+      "static/chunks/pages/restaurants/getRest.js"
     ]
   },
   "ampFirstPages": []

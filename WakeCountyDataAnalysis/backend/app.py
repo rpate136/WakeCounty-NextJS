@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import json
 import pandas as pd
-import requests
+import plotly.express as px
+import plotly
 from flask_cors import CORS
+import requests
 import logging
 
 app = Flask(__name__)
@@ -127,6 +129,57 @@ def search_restaurants_output():
     except Exception as e:
         print("Error:", e)
         return "An error occurred", 500
+
+
+@app.route('/restaurants/oneRestGraphs', methods=['GET'])
+def oneRestaurantOutput():
+
+    # Retrieve query parameters from the request
+    inp1 = request.args.get('hsid')
+    print(inp1)
+
+    # Ensure both city and year parameters are provided
+    if inp1 is None:
+        return "Failed to get HSISID", 400
+
+    # set the dataframe with HSISID input
+    df = getOneRestaurantInspDf(inp1)
+    dfCriticalYes = df[df['CRITICAL'] == "Yes"]
+
+    # category pie chart
+    categoryDF = pd.DataFrame(dfCriticalYes['CATEGORY'].value_counts())
+    categoryDF = categoryDF.reset_index()
+    fig1 = px.pie(categoryDF, values='count', names='CATEGORY', title='Breakdown of Category of risk factor for Critical Inspections')
+    fig1.update_layout(
+        plot_bgcolor='rgba(0, 0, 0, 1)',  # Black background
+        paper_bgcolor='rgba(0, 0, 0, 0)',  # Transparent plot area
+        font_color='white'  # White text color
+    )
+    graph = plotly.io.to_json(fig1, pretty=False)
+    #graph = fig1.to_html(full_html=False, default_height=500, default_width=700, include_plotlyjs=False)
+
+    # number of critical inspections
+    criticalDF = (pd.DataFrame(df['CRITICAL'].value_counts()))
+    criticalDF_HTML = criticalDF.to_json(orient='records')
+
+    # description of inspection findings totals
+    descDF = pd.DataFrame(dfCriticalYes['SHORTDESC'].value_counts())
+    descDF.index.name = 'Description'
+    descDF_HTML = descDF.to_json(orient='records')
+
+    # violation type total
+    violationDF = pd.DataFrame(df['VIOLATIONTYPE'].value_counts())
+    violationDF.index.name = 'Violation Type'
+    violationDF = violationDF.rename(columns={"VIOLATIONTYPE": 'TOTAL'})
+    violationDF = violationDF.reset_index()
+    fig2 = px.bar(violationDF, x='Violation Type', y='count',
+                  title='Breakdown of Category of risk factor for Critical Inspections')
+    violationBar = fig2.to_html(full_html=False, default_height=500, default_width=700)
+
+    graphs = {'graph': graph, 'critical': str(criticalDF_HTML), 'desc': str(descDF_HTML), 'violation': violationBar}
+    graphs = {'graph': json.loads(graph), 'critical': '', 'desc': '', 'violation': ''}
+
+    return json.dumps(graphs)
 
 
 if __name__ == '__main__':

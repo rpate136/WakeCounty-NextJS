@@ -30,10 +30,10 @@ export const Navbar = () => {
                         <div id="dropdownNavbar" className="hidden z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                             <ul className="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="/restaurants/getOne" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Look Up Resturants</a>
+                                <a href="/restaurants/getList" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Look Up Resturants</a>
                             </li>
                             <li>
-                                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Individual Restaurant</a>
+                                <a href="/restaurants/getRest" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Individual Restaurant</a>
                             </li>
                             <li>
                                 <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overall Analysis</a>

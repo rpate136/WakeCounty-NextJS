@@ -66,44 +66,42 @@ export default function Dropdown({ onSubmit }: DropdownProps) {
 
     return (
     
-    <div className="overflow-visible flex flex-row w-100 gap-10 pt-6 px-8">
-        
-        <div className="flex items-center gap-4 "> {/* Use flex and items-center to align children horizontally */}
+      <div className="overflow-visible flex flex-row gap-10 pt-6 px-8 relative">
+        <div className="overflow-visible flex items-center gap-4 relative">
+          {/* Use flex and items-center to align children horizontally */}
           <h1 className="text-1xl font-bold">Select City</h1>
           <Select
             options={listOfCities}
             values={[{ label: city }]}
             onChange={handleSelectChange}
-            dropdownHeight = "500px"
+            dropdownHeight="200px"
             dropdownGap={8} // Adjust the gap as needed
-            style={{ width: '200px' }}
+            style={{ width: '200px', zIndex: 2 }}
             className="overflow-visible w-full max-w-lg px-6 py-4 bg-gray-100 border border-gray-300 rounded focus:ring focus:ring-indigo-300 text-black"
-            // contentClassName="bg-white text-blue-600 overflow-visible"
           />
         </div>
-
-        <div className="flex items-center gap-4"> {/* Use flex and items-center to align children horizontally */}
+    
+        <div className="flex items-center gap-4 relative">
+          {/* Use flex and items-center to align children horizontally */}
           <h1 className="text-1xl font-bold">Select Year</h1>
           <Select
             options={listOfYears}
             values={[{ label: year }]}
             onChange={handleInputChange}
-            dropdownHeight = "500px"
+            dropdownHeight="200px"
             dropdownGap={8} // Adjust the gap as needed
-            style={{ width: '200px' }}
+            style={{ width: '200px', zIndex: 2 }} 
             className="overflow-visible w-full max-w-lg px-6 py-4 bg-gray-100 border border-gray-300 rounded focus:ring focus:ring-indigo-300 text-black"
-            // contentClassName="bg-white text-blue-600 overflow-visible"
           />
         </div>
-
-        <div className="flex items-center gap-4"> {/* Use flex and items-center to align children horizontally */}
+    
+        <div className="flex items-center gap-4 relative"> 
           <button onClick={handleSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
             Submit
           </button>
         </div>
-      
       </div>
-  
+    
   )
 }
 

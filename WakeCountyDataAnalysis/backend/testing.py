@@ -1,130 +1,61 @@
-# import json
-# import pandas as pd
-# import requests
-#
-# def getRestaurantsDf():
-#     print('Fetching restaurants data...')
-#     val = 'https://opendata.arcgis.com/datasets/124c2187da8c41c59bde04fa67eb2872_0.geojson'
-#     # Sending get request and saving the response as response object
-#     # extracting data in json
-#     r = requests.get(url = val)
-#     rows = []
-#     data = r.json()['features']
-#     for d in data:
-#         rows.append(d['properties'])
-#     df = pd.DataFrame(rows)
-#     df['CITY'] = df['CITY'].str.strip()
-#     df = df.apply(lambda x: x.astype(str).str.upper())
-#     df = df.replace("FUQUAY-VARINA", "FUQUAY VARINA")
-#     df['year'] = pd.DatetimeIndex(df['RESTAURANTOPENDATE']).year
-#     df['month'] = pd.DatetimeIndex(df['RESTAURANTOPENDATE']).month
-#     print('restaurants df shape:', df.shape)
-#     return df
-#
-# def handle_post_request_get_year():
-#     df = getRestaurantsDf()
-#     # Convert the 'datetime_column' to a Pandas datetime object
-#     df['RESTAURANTOPENDATE'] = pd.to_datetime(df['RESTAURANTOPENDATE'])
-#     # Extract the year and create a new column 'year'
-#     df['RESTAURANTOPENDATE'] = df['RESTAURANTOPENDATE'].dt.year
-#     list_of_year = df['RESTAURANTOPENDATE'].unique()
-#
-#     valueCount = 0
-#     options = []
-#     for year in list_of_year:
-#         temp = {
-#             "value": valueCount,
-#             "label": year
-#         }
-#         options.append(temp)
-#     return options
-#
+import pandas as pd
+import plotly.express as px
+import requests
+import json
+
+def getOneRestaurantInspDf(id):
+    print('Fetching restaurants data...')
+    val = f"https://maps.wakegov.com/arcgis/rest/services/Inspections/RestaurantInspectionsOpenData/MapServer/2/query?where=HSISID='{id}'&where=1%3D1&outFields=*&outSR=4326&f=json"
+    # Sending get request and saving the response as response object
+    # extracting data in json
+    r = requests.get(url=val)
+    rows = []
+    data = r.json()['features']
+    for d in data:
+        rows.append(d['attributes'])
+    df = pd.DataFrame(rows)
+    print('restaurants df shape:', df.shape)
+    return df
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+def oneRestaurantOutput():
+    # get the input
+    inp1 = "04092017012"
+    # set the dataframe with HSISID input
+    df = getOneRestaurantInspDf(inp1)
+    dfCriticalYes = df[df['CRITICAL'] == "Yes"]
+
+    # category pie chart
+    categoryDF = pd.DataFrame(dfCriticalYes['CATEGORY'].value_counts())
+    categoryDF = categoryDF.reset_index()
+    #print(categoryDF)
+    fig1 = px.pie(categoryDF, values='count', names='CATEGORY',
+                  title='Breakdown of Category of risk factor for Critical Inspections')
+    graph = fig1.to_html(full_html=False, default_height=500, default_width=700)
+
+    # number of critical inspections
+    criticalDF = (pd.DataFrame(df['CRITICAL'].value_counts()))
+    criticalDF = criticalDF.to_dict()
+    criticalDF = json.dumps(criticalDF)
+
+    # description of inspection findings totals
+    descDF = pd.DataFrame(dfCriticalYes['SHORTDESC'].value_counts())
+    descDF.index.name = 'Description'
+    descDF_HTML = descDF.to_html()
+
+    # violation type total
+    violationDF = pd.DataFrame(df['VIOLATIONTYPE'].value_counts())
+    violationDF.index.name = 'Violation Type'
+    violationDF = violationDF.rename(columns={"VIOLATIONTYPE": 'TOTAL'})
+    violationDF = violationDF.reset_index()
+    print(violationDF)
+    fig2 = px.bar(violationDF, x='Violation Type', y='count',
+                  title='Breakdown of Category of risk factor for Critical Inspections')
+    violationBar = fig2.to_html(full_html=False, default_height=500, default_width=700)
+
+    graphs = {'graph': graph, 'critical': criticalDF, 'desc': descDF, 'violation': violationBar}
+
+    return type(graphs["critical"])
 
 
-def iterative_in_order_traversal(root):
-    prev = None
-    stack = []
-    res = float("inf")
-    node = root
-
-    while stack or node:
-        while node:
-            stack.append(node)
-            node = node.left
-
-        node = stack.pop()
-
-        if prev is not None:
-            res = min(res, node.val - prev.val)
-
-        prev = node
-        node = node.right  # Corrected this line
-
-    return res
-
-def post_order(root):
-
-    stack = [root]
-    node = root
-
-    while(stack):
-        if node.left and node.right is None:
-            break
-
-
-
-# Example usage:
-# Construct a binary tree
-#        4
-#       / \
-#      2   6
-#     / \
-#    1   3
-#
-# root = TreeNode(4)
-# root.left = TreeNode(2)
-# root.right = TreeNode(6)
-# root.left.left = TreeNode(1)
-# root.left.right = TreeNode(3)
-#
-# # Perform iterative in-order traversal
-# result = iterative_in_order_traversal(root)
-# print(result)
-
-nums = [1,1,1,2,2,3]
-k = 2
-
-ans = []
-count = {}
-
-for i in nums:
-    if i in count:
-        count[i] += 1
-    else:
-        count[i] = 1
-    curr_val_count = count[i]
-
-for i in range(k):
-    temp = max(count,key=count.get)
-    print("dict: ",count, " max: ", temp)
-    ans.append(temp)
-    count.pop(temp)
-
-
-test = set()
-
-test.add((2,1))
-
-print(test)
-
-if (2,1) in test:
-    print("yes")
-else:
-    print("no")
+print(oneRestaurantOutput())

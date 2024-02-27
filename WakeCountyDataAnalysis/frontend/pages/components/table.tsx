@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import backendIP from "../../backendIP"
-import { log } from 'console';
 
 const DictionaryTable = ({city,year}:{city:string,year:string}) => {
   
@@ -25,7 +24,7 @@ const DictionaryTable = ({city,year}:{city:string,year:string}) => {
   if (dictionary.length == 0) {
     // If dictionary is null, don't render the table
     return (
-      <div>
+      <div className="overflow-y-auto">
         <h1 className="my-4 px-8">Make a selection for city and year</h1>
       </div>
     );
