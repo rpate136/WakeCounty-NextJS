@@ -28,6 +28,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/restaurants/getList": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/restaurants/getList.js"
+    ],
     "/restaurants/getRest": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

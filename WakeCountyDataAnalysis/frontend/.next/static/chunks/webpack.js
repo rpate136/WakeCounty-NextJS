@@ -133,7 +133,7 @@
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return undefined;
+/******/ 			return "static/chunks/" + chunkId + ".js";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -162,7 +162,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-/******/ 		__webpack_require__.h = function() { return "348b39d87c3a54ef"; }
+/******/ 		__webpack_require__.h = function() { return "087ba842b527f3bb"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
