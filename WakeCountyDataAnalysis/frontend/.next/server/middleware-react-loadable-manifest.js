@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"restaurants/getRest.tsx -> react-plotly.js":{"id":"restaurants/getRest.tsx -> react-plotly.js","files":["static/chunks/node_modules_react-plotly_js_react-plotly_js.js"]}}
+self.__REACT_LOADABLE_MANIFEST={"components/graphs.tsx -> react-plotly.js":{"id":"components/graphs.tsx -> react-plotly.js","files":["static/chunks/node_modules_react-plotly_js_react-plotly_js.js"]}}

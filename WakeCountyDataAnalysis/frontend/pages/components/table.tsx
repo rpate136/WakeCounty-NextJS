@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import backendIP from "../../backendIP"
+import { AgGridReact } from 'ag-grid-react'; // AG Grid Component
+import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
+import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
+
 
 const DictionaryTable = ({city,year}:{city:string,year:string}) => {
   
   const [dictionary, setDictionary] = useState<Record<string, any>[]>([]);
+  const [colDefs, setColDefs] = useState([
+        {field: "HSISID"},
+        {field: "NAME"},
+        {field: "ADDRESS1"},
+        {field: "ADDRESS2"},
+        {field: "CITY"},
+        {field: "STATE"},
+        {field: "POSTALCODE"},
+        {field: "PHONENUMBER"},
+        {field: "FACILITYTYPE"},
+        {field: "PERMITID"},
+        {field: "SHAPE"},
+        {field: "year"}
+  ]);
+
   // var backendIP = process.env.FLASK_APP_BACKEND_URI
   var backendIP= "http://127.0.0.1:5001"
 
@@ -21,38 +39,26 @@ const DictionaryTable = ({city,year}:{city:string,year:string}) => {
   }, [year, city]);
   
 
-  if (dictionary.length == 0) {
-    // If dictionary is null, don't render the table
-    return (
-      <div className="overflow-y-auto">
-        <h1 className="my-4 px-8">Make a selection for city and year</h1>
-      </div>
-    );
-  }
+  // if (dictionary.length == 0) {
+  //   // If dictionary is null, don't render the table
+  //   return (
+  //     <div className="overflow-y-auto">
+  //       <h1 className="my-4 px-8">Make a selection for city and year</h1>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="my-4 px-8 min-w-full">
-      <h1 className="text-2xl font-bold mb-4">Dictionary Table</h1>
-      <table className="w-full border-collapse border border-gray-300 bg-black text-white">
-        <thead>
-          <tr>
-            {Object.keys(dictionary[0]).map((key) => (
-              <th key={key} className="py-2 px-4 border border-gray-300">{key}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {dictionary.map((row, index) => (
-            <tr key={index}>
-              {Object.values(row).map((value, index) => (
-                <td key={index} className="py-2 px-4 border border-gray-300">{value}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-
+    <div
+    className="ag-theme-quartz-dark" // applying the grid theme
+    style={{ height: 600, width: 1500}} // the grid will fill the size of the parent container
+   >
+     <AgGridReact 
+         rowData={dictionary}
+         columnDefs={colDefs}
+         pagination={true}
+     />
+   </div>
   );
 };
 

@@ -1,6 +1,6 @@
 {
-  "restaurants/getRest.tsx -> react-plotly.js": {
-    "id": "restaurants/getRest.tsx -> react-plotly.js",
+  "components/graphs.tsx -> react-plotly.js": {
+    "id": "components/graphs.tsx -> react-plotly.js",
     "files": [
       "static/chunks/node_modules_react-plotly_js_react-plotly_js.js"
     ]

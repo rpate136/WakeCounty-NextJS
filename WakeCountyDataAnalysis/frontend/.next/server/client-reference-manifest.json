@@ -6,5 +6,15 @@
     "id": "./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[1]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[2]!./src/app/globals.css",
     "name": "",
     "chunks": []
+  },
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/ag-grid-community/styles/ag-grid.css#": {
+    "id": "./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[1]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[2]!./node_modules/ag-grid-community/styles/ag-grid.css",
+    "name": "",
+    "chunks": []
+  },
+  "/Users/rishipatel/Desktop/Personal Projects/WakeCounty-NextJS/WakeCountyDataAnalysis/frontend/node_modules/ag-grid-community/styles/ag-theme-quartz.css#": {
+    "id": "./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[1]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[15].use[2]!./node_modules/ag-grid-community/styles/ag-theme-quartz.css",
+    "name": "",
+    "chunks": []
   }
 }

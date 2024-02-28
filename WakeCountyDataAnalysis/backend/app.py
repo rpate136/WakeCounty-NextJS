@@ -32,7 +32,8 @@ def getRestaurantsDf():
     return df
 
 
-# API call to get the inspection data for a specific restaurants in wake county [Table title : Food Inspection Violations]
+# API call to get the inspection data for a specific restaurants in wake county [Table title : Food Inspection
+# Violations]
 def getOneRestaurantInspDf(id):
     print('Fetching restaurants data...')
     val = f"https://maps.wakegov.com/arcgis/rest/services/Inspections/RestaurantInspectionsOpenData/MapServer/2/query?where=HSISID='{id}'&where=1%3D1&outFields=*&outSR=4326&f=json"
@@ -48,7 +49,8 @@ def getOneRestaurantInspDf(id):
     return df
 
 
-# API call to get the inspection data for all restaurants in wake county [Table title : Food Inspection Violations](reading 420K~ rows)
+# API call to get the inspection data for all restaurants in wake county [Table title : Food Inspection Violations](
+# reading 420K~ rows)
 def getInspectionDf(forceFetch=False):
     print('Fetching restaurants data...')
     val = 'https://opendata.arcgis.com/datasets/9b04d0c39abd4e049cbd4656a0a04ba3_2.geojson'
@@ -68,6 +70,8 @@ def getInspectionDf(forceFetch=False):
 
 # -------------------------------------------------------------------------------------------------------
 # getRestaurant page API
+
+
 @app.route('/restaurants/getList', methods=['GET'])
 def handle_post_request():
     df = getRestaurantsDf()
@@ -142,6 +146,13 @@ def oneRestaurantOutput():
     if inp1 is None:
         return "Failed to get HSISID", 400
 
+    # Get into of the Restaurant
+    val = f"https://maps.wake.gov/arcgis/rest/services/Inspections/RestaurantInspectionsOpenData/MapServer/0/query?where=HSISID='{inp1}'&where=1%3D1&outFields=*&outSR=4326&f=json"
+    r = requests.get(url=val)
+    data = r.json()['features'][0]
+    data = data['attributes']
+    data = json.dumps(data)
+
     # set the dataframe with HSISID input
     df = getOneRestaurantInspDf(inp1)
     dfCriticalYes = df[df['CRITICAL'] == "Yes"]
@@ -149,14 +160,14 @@ def oneRestaurantOutput():
     # category pie chart
     categoryDF = pd.DataFrame(dfCriticalYes['CATEGORY'].value_counts())
     categoryDF = categoryDF.reset_index()
-    fig1 = px.pie(categoryDF, values='count', names='CATEGORY', title='Breakdown of Category of risk factor for Critical Inspections')
+    fig1 = px.pie(categoryDF, values='count', names='CATEGORY', title='Breakdown of Category of risk factor for '
+                                                                      'Critical Inspections')
     fig1.update_layout(
         plot_bgcolor='rgba(0, 0, 0, 1)',  # Black background
-        paper_bgcolor='rgba(0, 0, 0, 0)',  # Transparent plot area
+        paper_bgcolor='rgba(0, 0, 0, 1)',  # Transparent plot area
         font_color='white'  # White text color
     )
     graph = plotly.io.to_json(fig1, pretty=False)
-    #graph = fig1.to_html(full_html=False, default_height=500, default_width=700, include_plotlyjs=False)
 
     # number of critical inspections
     criticalDF = (pd.DataFrame(df['CRITICAL'].value_counts()))
@@ -164,7 +175,8 @@ def oneRestaurantOutput():
 
     # description of inspection findings totals
     descDF = pd.DataFrame(dfCriticalYes['SHORTDESC'].value_counts())
-    descDF.index.name = 'Description'
+    descDF = descDF.reset_index()
+    descDF = descDF.rename(columns={'SHORTDESC': 'Description'})
     descDF_HTML = descDF.to_json(orient='records')
 
     # violation type total
@@ -174,10 +186,15 @@ def oneRestaurantOutput():
     violationDF = violationDF.reset_index()
     fig2 = px.bar(violationDF, x='Violation Type', y='count',
                   title='Breakdown of Category of risk factor for Critical Inspections')
-    violationBar = fig2.to_html(full_html=False, default_height=500, default_width=700)
+    fig2.update_layout(
+        plot_bgcolor='rgba(0, 0, 0, 1)',  # white background
+        paper_bgcolor='rgba(0, 0, 0, 1)',  # Transparent plot area
+        font_color='white'  # White text color
+    )
+    violation = plotly.io.to_json(fig2, pretty=False)
 
-    graphs = {'graph': graph, 'critical': str(criticalDF_HTML), 'desc': str(descDF_HTML), 'violation': violationBar}
-    graphs = {'graph': json.loads(graph), 'critical': '', 'desc': '', 'violation': ''}
+    graphs = {'graph': json.loads(graph), 'critical': json.loads(criticalDF_HTML), 'desc': json.loads(descDF_HTML),
+              'violation': json.loads(violation), 'info': json.loads(data)}
 
     return json.dumps(graphs)
 

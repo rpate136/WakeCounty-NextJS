@@ -28,15 +28,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/restaurants/getList": [
+    "/restaurants/OneRestaurantAnalysis": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/restaurants/getList.js"
-    ],
-    "/restaurants/getRest": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/restaurants/getRest.js"
+      "static/chunks/pages/restaurants/OneRestaurantAnalysis.js"
     ]
   },
   "ampFirstPages": []

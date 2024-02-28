@@ -66,7 +66,7 @@ export default function Dropdown({ onSubmit }: DropdownProps) {
 
     return (
     
-      <div className="overflow-visible flex flex-row gap-10 pt-6 px-8 relative">
+      <div className="overflow-visible flex flex-row gap-10 relative">
         <div className="overflow-visible flex items-center gap-4 relative">
           {/* Use flex and items-center to align children horizontally */}
           <h1 className="text-1xl font-bold">Select City</h1>
