@@ -10,7 +10,7 @@ import overallAnalysis
 import restaurantAnalysis
 
 app = Flask(__name__)
-CORS(app, resources={r"/restaurants/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/restaurants/*": {"origins": "http://localhost:3001"}})
 
 
 # API call to get the restaurants in wake county [Table title : Restaurants in Wake County]
@@ -88,6 +88,14 @@ def handle_post_request():
         options.append(temp)
 
     return jsonify(options), 200
+
+
+@app.route('/restaurants/getRestaurants', methods=['GET'])
+def get_restaurant():
+    df = getRestaurantsDf()
+    df = df[["HSISID", "NAME", "ADDRESS1", "ADDRESS2", "CITY", "POSTALCODE", "PHONENUMBER", "FACILITYTYPE", "PERMITID","RESTAURANTOPENDATE"]]
+    df = df.to_json(orient='records')
+    return df, 200
 
 
 @app.route('/restaurants/getYear', methods=['GET'])

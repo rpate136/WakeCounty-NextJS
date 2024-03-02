@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { AgGridReact } from 'ag-grid-react'; // AG Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the grid
+import backendIp from '../backendIP';
 
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
@@ -15,7 +16,7 @@ export default function GetGraphs(){
   const [colDefs, setColDefs] = useState<any>([]);
   // const [graph1, setgraph1] = useState<any>({data:null,layout:null});
 
-  var backendIP= "http://127.0.0.1:5001"
+  var backendIP = backendIp.backendIP || "http://127.0.0.1:5001"
 
     const handleSubmit = (e:any) => {
       e.preventDefault();
@@ -45,7 +46,7 @@ export default function GetGraphs(){
   
 
     return (
-      <div id ='graphs' className='overflow-visible flex-col gap-6 pt-6 px-8 relative'>
+      <div id ='graphs' className='h-screen overflow-visible flex-col gap-6 pt-6 px-8 relative'>
 
         <div id ='button&info' className='inline-block bg-zinc-900 text-white hover:border-4 border-blue-500 border-solid rounded p-2'>
 
@@ -75,7 +76,7 @@ export default function GetGraphs(){
 
         </div>
 
-        {!plots.info && <div id='no chart message' className='size-full text-center align-middle mt-40'> Charts will display here</div>}
+        {!plots.info && <div id='no chart message' className='text-center align-middle mt-40 text-4xl font-bold text-white mb-4 rainbow-text animate-pulse'> Charts will display here</div>}
         
         <div className='py-4'>
           {plots.graph && <Plot data={plots.graph.data} layout={plots.graph.layout}/>}

@@ -35,20 +35,20 @@ export const Navbar = () => {
                                 <a href="/restaurants/OneRestaurantAnalysis" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Look Up Resturants</a>
                             </li>
                             <li>
-                                <a href="/restaurants/AllRestaurantAnalysis" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Individual Restaurant</a>
+                                <a href="/restaurants/AllRestaurantAnalysis" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Resturant Analysis</a>
                             </li>
                             <li>
-                                <a href="/restaurants/OverallAnalysis" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overall Analysis</a>
+                                <a href="/restaurants/OverallAnalysis" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Inspection Analysis</a>
                             </li>
                             </ul>
                         </div>
                 
                     </li>
                     <li>
-                    <a href="#" className={text_style}>Police</a>
+                    <a href="/police" className={text_style}>Police</a>
                     </li>
                     <li>
-                    <a href="#" className={text_style}>Demographics</a>
+                    <a href="/demographics" className={text_style}>Demographics</a>
                     </li>
                 </ul>
                 </div>
