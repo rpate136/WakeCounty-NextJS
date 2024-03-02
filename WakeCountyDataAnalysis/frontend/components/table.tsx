@@ -10,17 +10,17 @@ const DictionaryTable = ({city,year}:{city:string,year:string}) => {
   const [dictionary, setDictionary] = useState<Record<string, any>[]>([]);
   const [colDefs, setColDefs] = useState([
         {field: "HSISID"},
-        {field: "NAME"},
+        {field: "NAME", filter:true},
         {field: "ADDRESS1"},
         {field: "ADDRESS2"},
-        {field: "CITY"},
+        {field: "CITY", filter:true},
         {field: "STATE"},
         {field: "POSTALCODE"},
         {field: "PHONENUMBER"},
         {field: "FACILITYTYPE"},
         {field: "PERMITID"},
         {field: "SHAPE"},
-        {field: "year"}
+        {field: "year", filter:true}
   ]);
 
   // var backendIP = process.env.FLASK_APP_BACKEND_URI
@@ -50,7 +50,7 @@ const DictionaryTable = ({city,year}:{city:string,year:string}) => {
 
   return (
     <div
-    className="ag-theme-quartz-dark" // applying the grid theme
+    className="ag-theme-quartz-dark ml-5" // applying the grid theme
     style={{ height: 600, width: 1500}} // the grid will fill the size of the parent container
    >
      <AgGridReact 

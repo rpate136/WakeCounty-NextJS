@@ -6,18 +6,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
+
+    <div className='bg-black m-20 rounded-full shadow-2xl hover:shadow-red-500'>
     <main className={styles.main}>
 
-      <div className={styles.description}>
-        <p>
-          Welcome&nbsp;
-          <code className={styles.code}>to NextJS</code>
-        </p>
-      </div>
 
       <div>
       <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Data analysis and visualization of
-      <span className="text-blue-600 dark:text-blue-500"> Wake County</span> data.</h1>
+      <span className="text-blue-600 dark:text-blue-500 hover:bg-gradient-to-b from-sky-600 to-pink-500 bg-clip-text text-transparent"> Wake County</span> data.</h1>
       <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">The government provides data of restaurants, police, fire department, parks and much more. This website analyzes and displayed that data.</p>
       </div>
 
@@ -35,8 +31,15 @@ export default function Home() {
             Link the the data available on wake county government website
           </p>
         </a>
-      </div>
+      </div>    
 
+      <div className={styles.description}>
+        <p>
+          by&nbsp;
+          <code className={styles.code}>Rishi Patel</code>
+        </p>
+      </div>
     </main>
+    </div>   
   )
 }

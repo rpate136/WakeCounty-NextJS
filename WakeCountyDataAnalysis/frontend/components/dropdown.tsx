@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-dropdown-select';
 import axios from 'axios';
-import backendIP from "../../backendIP"
+import backendIP from "../backendIP"
 
 interface DropdownProps {
   onSubmit: (data: { city: string; year: string }) => void;

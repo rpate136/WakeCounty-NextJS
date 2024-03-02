@@ -6,6 +6,8 @@ import plotly
 from flask_cors import CORS
 import requests
 import logging
+import overallAnalysis
+import restaurantAnalysis
 
 app = Flask(__name__)
 CORS(app, resources={r"/restaurants/*": {"origins": "http://localhost:3000"}})
@@ -137,7 +139,6 @@ def search_restaurants_output():
 
 @app.route('/restaurants/oneRestGraphs', methods=['GET'])
 def oneRestaurantOutput():
-
     # Retrieve query parameters from the request
     inp1 = request.args.get('hsid')
     print(inp1)
@@ -197,6 +198,47 @@ def oneRestaurantOutput():
               'violation': json.loads(violation), 'info': json.loads(data)}
 
     return json.dumps(graphs)
+
+
+# -------------------------------------------------------------------------------------------------------
+# Overall Analysis API
+
+
+@app.route('/restaurants/overallAnalysisGraphs', methods=['GET'])
+def overall_analysis():
+
+    df = getInspectionDf()
+    restaurants = getRestaurantsDf()
+
+    inspector = overallAnalysis.inspector_analysis(df)
+    violationCode = overallAnalysis.total_violations(df)
+    top20Rest = overallAnalysis.top_20_restaurants(df, restaurants)
+
+    graphs = {'inspector': json.loads(inspector),
+              'violationCode': json.loads(violationCode),
+              'top20Rest': json.loads(top20Rest)
+              }
+
+    return json.dumps(graphs), 200
+
+
+@app.route('/restaurants/restaurantsAnalysisGraphs', methods=['GET'])
+def restaurant_analysis():
+
+    df = getRestaurantsDf()
+
+    city = restaurantAnalysis.city_analysis(df)
+    facility = restaurantAnalysis.facility_analysis(df)
+    num_restaurants = restaurantAnalysis.number_of_restaurants_analysis(df)
+    map_fig = restaurantAnalysis.map_of_restaurants(df)
+
+    graphs = {'city': json.loads(city),
+              'facility': json.loads(facility),
+              'num_restaurants': json.loads(num_restaurants),
+              'map_fig': json.loads(map_fig)
+              }
+
+    return json.dumps(graphs), 200
 
 
 if __name__ == '__main__':

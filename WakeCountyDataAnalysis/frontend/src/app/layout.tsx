@@ -13,11 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className='w-screen h-screen bg-gradient-to-r from-blue-800 to-indigo-900'>
       < Navbar/>
-      
       {children}
-
       </body>
     </html>
   )

@@ -4,10 +4,10 @@ import '../src/app/globals.css'
  
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className=''>
       <Navbar />
       <Component {...pageProps} />
-    </>
+    </div>
   )
 }
  
