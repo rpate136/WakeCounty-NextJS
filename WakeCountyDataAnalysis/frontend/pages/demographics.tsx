@@ -10,9 +10,7 @@ const demographics = () => {
         <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-4 rainbow-text animate-pulse">Coming Soon</h1>
         </div>
-        <script>
-            // Any JavaScript animations or interactions can be added here
-        </script>
+
         </div>
 
     );
