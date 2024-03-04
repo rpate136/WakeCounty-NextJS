@@ -8,8 +8,8 @@ const nextConfig = {
   //   description: process.env.DESCRIPTION,
   // },
   env: {
-    FLASK_APP_BACKEND_URI: 'http://localhost:5001'
+    FLASK_APP_BACKEND_URI: process.env.NEXT_PUBLIC_BACKEND_URL
   }
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
