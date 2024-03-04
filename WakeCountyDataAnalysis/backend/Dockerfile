@@ -14,4 +14,7 @@ ENV PORT=5001
 
 EXPOSE 5001
 
-CMD python3 ./app.py
+# CMD python3 ./app.py uwsgi --socket 0.0.0.0:5001 --protocol=http -w wsgi:app  
+
+CMD ["uwsgi", "--socket", "0.0.0.0:5001", "--protocol=http", "-w", "wsgi:app"]
+

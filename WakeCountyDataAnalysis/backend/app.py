@@ -5,12 +5,12 @@ import plotly.express as px
 import plotly
 from flask_cors import CORS
 import requests
-import logging
 import overallAnalysis
 import restaurantAnalysis
 
+
 app = Flask(__name__)
-CORS(app, resources={r"/restaurants/*": {"origins": "http://localhost:3001"}})
+CORS(app)
 
 
 # API call to get the restaurants in wake county [Table title : Restaurants in Wake County]
@@ -250,5 +250,6 @@ def restaurant_analysis():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=5001)
-    logging.basicConfig(filename='error.log', level=logging.DEBUG)
+    app.run(debug=True, host='0.0.0.0', port=5001)
+
+#     /restaurants/getRestaurants

@@ -10,11 +10,13 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 ENV PORT=8080
 
 ENV NEXT_PUBLIC_API_URI=http://localhost:5001
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD ["npm","run","dev"]
+CMD ["npm","start"]
 

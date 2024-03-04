@@ -8,7 +8,7 @@ const nextConfig = {
   //   description: process.env.DESCRIPTION,
   // },
   env: {
-    FLASK_APP_BACKEND_URI: 'http://localhost:5000'
+    FLASK_APP_BACKEND_URI: 'http://localhost:5001'
   }
 }
 
